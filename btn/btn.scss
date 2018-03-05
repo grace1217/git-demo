@@ -1,0 +1,72 @@
+$btnwidth: 120px;
+$btnheight: 20px;
+$defaultColor: #fff;
+$primaryColor: #337ab7;
+$successColor: #5cb85c;
+$comColor: #5bc0de;
+$warmColor: #f0ad4e;
+$dangColor:  #d9534f;
+$defaultborder: #ccc;
+$primaryborder: #2e6da4;
+$successborder: #4cae4c;
+$comborder: #46b8da;
+$warmborder: #eea236;
+$dangborder:  #d43f3a;
+
+body,ul,li{
+	padding: 0;
+	margin: 0;
+}
+li{
+	list-style: none;
+}
+.clearfix{
+	clear: both;
+}
+
+.btn1,
+.btn2{
+	li{
+		float: left;
+		width: $btnwidth;
+		height: $btnheight;
+        line-height: $btnheight;
+        padding: 6px 12px;
+        text-align: center;
+        color: $defaultColor;
+
+        //define a list to store backgroundcolor
+        $bgcolorlist: $defaultColor $primaryColor $successColor $comColor $warmColor $dangColor;
+        $bordercolorlist: $defaultborder $primaryborder $successborder $comborder $warmborder $dangborder;
+
+        //use the for of sass to set the backgroundColor
+        @for $i from 1 through length($bgcolorlist){
+        	&:nth-child(#{$i}){
+        	  background-color: nth($bgcolorlist,$i);
+        	  border: 1px solid nth($bordercolorlist,$i);
+        	  &:hover{
+        	    background-color: nth($bordercolorlist,$i);
+        	  }
+        	}
+        }
+        &:first-child{
+        	color: #333;
+        }
+        span{
+        	font:{
+        	  family: "Times New Roman",Georgia,Serif;
+        	  size: 15px;
+        	}
+        	color: fff;
+        }
+	}
+}
+
+.btn1{
+   li{
+   	 margin: 10px;
+   }	
+}
+.btn2{
+	margin:10px;
+}
